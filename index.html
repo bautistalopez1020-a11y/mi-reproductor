@@ -14,13 +14,22 @@
         .pantalla { display: none; padding: 20px; min-height: 100vh; flex-direction: column; align-items: center; }
         .activa { display: flex; }
 
-        /* PANTALLA 1 */
-        .fila-albumnes { display: flex; flex-direction: row; justify-content: flex-start; gap: 30px; width: 80%; margin-top: 50px; overflow-x: auto; padding-bottom: 20px; }
-        .album-card { flex: 0 0 180px; border: 2px solid white; padding: 10px; cursor: pointer; transition: 0.3s; text-align: center; }
+        /* PANTALLA 1: GRILLA PARA QUE LOS DISCOS BAJEN A LA SIGUIENTE FILA */
+        .fila-albumnes { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); 
+            gap: 30px; 
+            width: 90%; 
+            max-width: 1200px;
+            margin-top: 50px; 
+            padding-bottom: 50px;
+        }
+
+        .album-card { border: 2px solid white; padding: 10px; cursor: pointer; transition: 0.3s; text-align: center; }
         .album-card:hover { background: rgba(128,0,0,0.3); transform: scale(1.05); border-color: #800000; }
         .album-card img { width: 100%; aspect-ratio: 1/1; object-fit: cover; }
 
-        /* PANTALLA 2 */
+        /* PANTALLA 2: LISTA DE TEMAS */
         .contenedor-lista { display: grid; grid-template-columns: 1fr 250px 1fr; align-items: start; gap: 30px; margin-top: 30px; width: 90%; }
         .circulo-album { width: 250px; height: 250px; border-radius: 50%; border: 5px solid white; object-fit: cover; position: sticky; top: 50px; }
         .columna-temas { display: flex; flex-direction: column; gap: 10px; }
@@ -35,7 +44,7 @@
             font-size: 12px; font-weight: bold; flex-shrink: 0;
         }
 
-        /* PANTALLA 3 */
+        /* PANTALLA 3: REPRODUCTOR */
         .vinilo { width: 400px; height: 400px; border-radius: 50%; border: 15px solid #1a1a1a; box-shadow: 0 0 30px rgba(255,0,0,0.6); animation: girar 5s linear infinite; animation-play-state: paused; object-fit: cover; margin: 20px 0; }
         @keyframes girar { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
         .girando { animation-play-state: running; }
@@ -218,6 +227,25 @@
                     { pos: 14, nombre: "El Novio Del Olvido", archivo: "novio.mp3" },
                     { pos: 15, nombre: "Catalina Bahia (Bonus Track)", archivo: "catalina.mp3" },
                     { pos: 16, nombre: "", archivo: "" }
+                ]
+            },
+            {
+                artista: "Los Piojos", album: "Civilización", portada: "https://akamai.sscdn.co/uploadfile/letras/albuns/8/6/4/8/641201530022754.jpg",
+                temas: [
+                    { pos: 1, nombre: "Manjar", archivo: "manjar.mp3" },
+                    { pos: 2, nombre: "Pacífico", archivo: "pacifico.mp3" },
+                    { pos: 3, nombre: "Civilización", archivo: "civilizacion.mp3" },
+                    { pos: 4, nombre: "Bicho de Ciudad", archivo: "bicho.mp3" },
+                    { pos: 5, nombre: "Pollo Viejo", archivo: "pollo.mp3" },
+                    { pos: 6, nombre: "Cruces y Flores", archivo: "cruces.mp3" },
+                    { pos: 7, nombre: "Difícil", archivo: "dificil.mp3" },
+                    { pos: 8, nombre: "Un Buen Día", archivo: "dia.mp3" },
+                    { pos: 9, nombre: "Basta de Penas", archivo: "penas.mp3" },
+                    { pos: 10, nombre: "Unbekannt", archivo: "unbe.mp3" },
+                    { pos: 11, nombre: "Salitral", archivo: "salitral.mp3" },
+                    { pos: 12, nombre: "Hoy Es Hoy", archivo: "hoy.mp3" },
+                    { pos: 13, nombre: "Buenos Dias Palomar", archivo: "palomar.mp3" },
+                    { pos: 14, nombre: "", archivo: "" }, { pos: 15, nombre: "", archivo: "" }, { pos: 16, nombre: "", archivo: "" }
                 ]
             }
         ];
